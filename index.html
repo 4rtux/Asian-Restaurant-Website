@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Zatoichi Sushi</title>
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="media/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="media/favicon.ico" type="image/x-icon">   
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="media/logo.png" alt="zatoichi logo">
+            </div>
+            <ul class="nav-links">
+                <li><a onclick="window.location.reload();">INICIO</a></li>
+                <li><a href="#">CARTA</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="cont1">
+        <div class="column">
+            <div class="section1">
+                <video class="video" autoplay playsinline loop muted>
+                    <!-- eliminar controls -->
+                    <source src="media/video.mp4" type="video/mp4">
+                </video>
+                <div class="text-overlay">Zatoichi Sushi</div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="fil">
+                <a href='#carta'>
+                    <div class="col">Especialidades</div>
+                </a>
+                <a href='#filo'>
+                    <div class="col">Nuestra Filosofía</div>
+                </a>
+
+            </div>
+            <div class="fil">
+                <a href='#donde'>
+                    <div class="col">Donde estamos</div>
+                </a>
+                <a href="#">
+                    <div id="sign-up" class="col">Club</div>
+                    <div id="modal-sign-up" class="modal">
+                        <div class="modal-content">
+                            <h2>Sign Up</h2>
+                            <form id="signupForm">
+                                <label for="dni">DNI:</label>
+                                <input type="text" id="dni" pattern="\d{8}[A-Za-z]" required><br><br>
+                
+                                <label for="firstName">First Name:</label>
+                                <input type="text" id="firstName" required><br><br>
+                
+                                <label for="lastName">Last Name:</label>
+                                <input type="text" id="lastName" required><br><br>
+                
+                                <label for="telephone">Telephone:</label>
+                                <input type="tel" id="telephone" pattern="[0-9]{9}" required><br><br>
+                
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" required><br><br>
+                
+                                <button type="button" id="submitBtn">Submit</button>
+                                <button type="button" id="cancelBtn">Cancel</button>
+                                <button type="button" id="clearBtn">Clear Fields</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+            <div class="fil">
+                <a href="#">
+                    <div class="col">Pedir ya</div>
+                </a>
+                <a href="#pie">
+                    <div class="col">Contacto</div>
+                </a>
+
+            </div>
+        </div>
+        
+    </div>
+    <div class= "cont2" id="carta">
+        <div class="filaT">
+                <div class="texto" >
+                        <p >Explore nuestra variedad de más de 100 platos.<br><br>
+                            En ella podrá encontrar productos de la más alta calidad,
+                            como los nigiris de salmón braseado, los tazones de ramen con ternera
+                            y las deliciosas gyozas de pollo</p>
+                </div>
+                <img src="media/Gyoza.jpg" class="imagen" alt="gyozas">
+        </div>
+
+    </div>
+    <div class= "cont3" id="filo">
+        <div class="filaT">
+            <img src="media/restaurante.webp" class="imagen" alt="restaurante">
+
+            <div class="texto">
+                        <p>Nuestro modelo de negocio se centra en la calidad exquisita de los ingredientes y de un meticuloso servicio al cliente.<br><br>
+                            El establecimiento cuenta con un estilo propio siempre buscando agradar al cliente y hacerle sentir como en casa.
+                        </p>
+             </div>
+        </div>
+
+    </div>
+    <div class= "cont3" id="donde">
+        <div class="filaT">
+                <div class="texto" >
+                    <h2>¡Estamos cerca de ti!</h2>
+                </div>
+                <img src="media/ramen.webp" class="imagen" alt="ramen">
+                <a href="https://www.google.es/maps/place/Zatoichi+Sushi/@37.1604528,-5.9300537,17z/data=!3m1!4b1!4m6!3m5!1s0xd1277251971a395:0x56e04e83eb4d797d!8m2!3d37.1604528!4d-5.9274788!16s%2Fg%2F11fd77wpds?entry=ttu">
+                    <div class="col">Encuentranos</div>
+                </a>
+        </div>
+
+    </div>
+    <div class="vacio"></div>
+    <footer class="pie" id="pie">
+        <div class="grupo">
+            <div class="box">
+                <img src="media/logo.png" alt="zatoichi logo">
+            </div>
+            <div class="box">
+                <p>© Todos los derechos reservados</p>
+            </div>
+            
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
