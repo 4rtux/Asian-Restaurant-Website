@@ -1,0 +1,33 @@
+body {
+    background-color: #181a1b;
+}
+/* Apply styles to the top bar */
+.top-bar {
+    background-color: #333; /* Dark gray background color */
+    display: inline;
+    justify-content: space-between;
+    padding: 10px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Apply styles to individual steps */
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Apply styles to dots */
+.dot {
+    width: 20px;
+    height: 20px;
+    background-color: #1e90ff; /* Light blue color */
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+/* Apply styles to step text */
+.step-text {
+    color: white; /* White text color */
+}

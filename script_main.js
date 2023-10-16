@@ -1,6 +1,6 @@
 // script.js
 
-// Variable que cuenta el n de validaciones correctas, si es igual a 4, se guarda en localStorage
+// Variable que cuenta el n de validaciones correctas, si es igual a 5, se guarda en localStorage
 var counter = 0;
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -17,15 +17,21 @@ document.addEventListener('DOMContentLoaded', function () {
     const lastNameValidationMessage = document.getElementById('lastNameValidationMessage');
 
     const telephoneInput = document.getElementById('telephone');
+    const telephoneValidationMessage = document.getElementById('telephoneValidationMessage');
+
     const emailInput = document.getElementById('email');
+    const emailValidationMessage = document.getElementById('emailValidationMessage');
+
     const submitBtn = document.getElementById('submitBtn');
     const cancelBtn = document.getElementById('cancelBtn');
     const clearBtn = document.getElementById('clearBtn');
 
-    openModalDiv.addEventListener('click', function(event) {
+    openModalDiv.addEventListener('click', function(event){
         dniValidationMessage.style.display = 'none';
         firstNameValidationMessage.style.display = 'none';
         lastNameValidationMessage.style.display = 'none';
+        telephoneValidationMessage.style.display = 'none';
+        emailValidationMessage.style.display = 'none';
         signupModal.style.display = 'block';
         event.preventDefault();
     });
@@ -47,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const dni = dniInput.value.trim();
         const firstName = firstNameInput.value.trim();
         const lastName = lastNameInput.value.trim();
-        const telephone = telephoneInput.value.trim();
+        const telephone = telephoneInput.value.replace(/ /g, '');
         const email = emailInput.value.trim();
 
         // Perform validation here (e.g., DNI, telephone, email format)
@@ -62,49 +68,34 @@ document.addEventListener('DOMContentLoaded', function () {
             return letters.charAt(numericDNI);
         }
 
-        if (dniInput.validity.valid) {
+        if (/^[0-9]{8}[a-zA-Z]$/.test(dni)) {
             const calculatedLetter = calculateDNILetter(Number(numericPart));
             
             if (calculatedLetter.toUpperCase() === providedLetter.toUpperCase()) {
-
                 counter++;
 
-                // Store in localStorage
-                /*const userData = {
-                    dni,
-                    firstName,
-                    lastName,
-                    telephone,
-                    email,
-                };
-
-                localStorage.setItem('userData', JSON.stringify(userData));
-                */
             } else {
                 dniValidationMessage.style.display = 'inline';
                 dniValidationMessage.textContent = 'DNI is not valid.';
                 dniValidationMessage.style.color = 'red';
 
-                // Remove data from localStorage
-                // localStorage.removeItem('userData');
             }
         } else {
             dniValidationMessage.style.display = 'inline';
             dniValidationMessage.textContent = 'DNI format is not valid.';
             dniValidationMessage.style.color = 'red';
 
-            // Remove data from localStorage
-            // localStorage.removeItem('userData');
         }
+        // Validate first name and last name
         
-        if (firstNameInput.validity.valid) {
+        if (/^[a-zA-Z ]+$/.test(firstName)) {
             counter++;
         } else {
             firstNameValidationMessage.style.display = 'inline';
             firstNameValidationMessage.textContent = 'Invalid First Name.';
             firstNameValidationMessage.style.color = 'red';
         }
-        if (lastNameInput.validity.valid) {
+        if (/^[a-zA-Z ]+$/.test(lastName)) {
             counter++;
         } else {
             lastNameValidationMessage.style.display = 'inline';
@@ -112,11 +103,45 @@ document.addEventListener('DOMContentLoaded', function () {
             lastNameValidationMessage.style.color = 'red';
         }
         
-        
-        
-        
+        // Validate telephone number
+        if (/^(\+34|0034|34)?[6|7|8|9][0-9]{8}$/.test(telephone)) {
+            counter++;
+        } else {
+            telephoneValidationMessage.style.display = 'inline';
+            telephoneValidationMessage.textContent = 'Invalid Telephone.';
+            telephoneValidationMessage.style.color = 'red';
+        }
+
+        // Validate email
+        if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]{2,4}$/.test(email)) {
+            counter++;
+        } else {
+            emailValidationMessage.style.display = 'inline';
+            emailValidationMessage.textContent = 'Invalid Email.';
+            emailValidationMessage.style.color = 'red';
+        }
+
+        // Check if all validations were correct
+        if (counter == 5) {
+            // Store in localStorage
+            const userData = {
+                dni,
+                firstName,
+                lastName,
+                telephone,
+                email,
+            };
+
+            localStorage.setItem('userData', JSON.stringify(userData));
+            signupModal.style.display = 'none';
+        }
         
         console.log(dniValidationMessage.textContent);
+        console.log(firstNameValidationMessage.textContent);
+        console.log(lastNameValidationMessage.textContent);
+        console.log(telephoneValidationMessage.textContent);
+        console.log(emailValidationMessage.textContent);
+        console.log(counter);
 
         // Check if the data was stored correctly
         var usr = localStorage.getItem('userData');
