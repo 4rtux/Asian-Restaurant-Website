@@ -4,8 +4,8 @@ body {
 /* Apply styles to the top bar */
 .top-bar {
     background-color: #333; /* Dark gray background color */
-    display: inline;
-    justify-content: space-between;
+    display: inline-flex;
+    justify-content: center;
     padding: 10px;
     width: 80%;
     margin: 0 auto;
@@ -14,8 +14,8 @@ body {
 /* Apply styles to individual steps */
 .step {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 /* Apply styles to dots */
@@ -30,4 +30,16 @@ body {
 /* Apply styles to step text */
 .step-text {
     color: white; /* White text color */
+}
+
+.line {
+    width: 20px;
+    border: 2px solid #1e90ff; /* Blue border */
+    display: inline-block;
+    margin: 0 auto;
+
+
+}
+.step:first-child .line {
+    border: none;
 }
