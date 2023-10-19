@@ -26,27 +26,35 @@ document.addEventListener('DOMContentLoaded', function () {
     const cancelBtn = document.getElementById('cancelBtn');
     const clearBtn = document.getElementById('clearBtn');
 
+    const order = document.getElementById('order');
+    const popupwindow = document.getElementById('pop-up-window');
+
     openModalDiv.addEventListener('click', function(event){
         dniValidationMessage.style.display = 'none';
         firstNameValidationMessage.style.display = 'none';
         lastNameValidationMessage.style.display = 'none';
         telephoneValidationMessage.style.display = 'none';
         emailValidationMessage.style.display = 'none';
+        popupwindow.style.display = 'none';
+        order.style.display = 'none';
         signupModal.style.display = 'block';
         event.preventDefault();
     });
 
     cancelBtn.addEventListener('click', () => {
         signupModal.style.display = 'none';
+        clearInputFields();
     });
 
-    clearBtn.addEventListener('click', () => {
+    function clearInputFields() {
         dniInput.value = '';
         firstNameInput.value = '';
         lastNameInput.value = '';
         telephoneInput.value = '';
         emailInput.value = '';
-    });
+    }
+    
+    clearBtn.addEventListener('click', clearInputFields);
 
     submitBtn.addEventListener('click', () => {
         // Validate and store user information in localStorage
@@ -151,4 +159,56 @@ document.addEventListener('DOMContentLoaded', function () {
         // Close the modal
         // signupModal.style.display = 'none';
     });
+
+    order.addEventListener('click', function(event){
+        popupwindow.style.display = 'block';
+        event.preventDefault();
+    });
+
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const steps = document.querySelectorAll('.step');
+    const stepContents = document.querySelectorAll('.step-content');
+    let currentStep = 0;
+
+    function updateStepDisplay() {
+        steps.forEach((step, index) => {
+            if (index === currentStep) {
+                step.classList.add('active');
+            } else {
+                step.classList.remove('active');
+            }
+        });
+
+        stepContents.forEach((content, index) => {
+            if (index === currentStep) {
+                content.style.display = 'block';
+            } else {
+                content.style.display = 'none';
+            }
+        });
+    }
+
+    function nextStep() {
+        if (currentStep < steps.length - 1) {
+            currentStep++;
+            updateStepDisplay();
+        }
+    }
+
+    function prevStep() {
+        if (currentStep > 0) {
+            currentStep--;
+            updateStepDisplay();
+        }
+    }
+
+    // Handle "Next" and "Previous" button clicks
+    const nextButton = document.getElementById('nextButton');
+    const prevButton = document.getElementById('prevButton');
+    nextButton.addEventListener('click', nextStep);
+    prevButton.addEventListener('click', prevStep);
+
+    updateStepDisplay();
 });

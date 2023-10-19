@@ -49,51 +49,72 @@
                 </a>
             </div>
 
-            <div id="signupModal" class="modal">
-                <div class="modal-content">
-                    <h2>Sign Up</h2>
-                    <form id="signupForm">
-                        <label for="dni">DNI:</label>
-                        <input type="text" id="dni" required pattern="\d{8}[A-Za-z]">
-                        <p id="dniValidationMessage" class="error-message"></p>
-                        <br><br>
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <h2>Sign Up</h2>
+            <form id="signupForm">
+                <label for="dni">DNI:</label>
+                <input type="text" id="dni" required pattern="\d{8}[A-Za-z]">
+                <p id="dniValidationMessage" class="error-message"></p>
+                <br><br>
+
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" required pattern="^[A-Za-z ]+$">
+                <p id="firstNameValidationMessage" class="error-message"></p>
+                <br><br>
+
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" required pattern="^[A-Za-z ]+$">
+                <p id="lastNameValidationMessage" class="error-message"></p>
+                <br><br>
+
+                <label for="telephone">Telephone:</label>
+                <input type="tel" id="telephone" required pattern="[0-9]{9}">
+                <p id="telephoneValidationMessage" class="error-message"></p>
+                <br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}">
+                <p id="emailValidationMessage" class="error-message"></p>
+                <br><br>
+
+                <button type="button" id="submitBtn">Submit</button>
+                <button type="button" id="cancelBtn">Cancel</button>
+                <button type="button" id="clearBtn">Clear Fields</button>
         
-                        <label for="firstName">First Name:</label>
-                        <input type="text" id="firstName" required pattern="^[A-Za-z ]+$">
-                        <p id="firstNameValidationMessage" class="error-message"></p>
-                        <br><br>
-        
-                        <label for="lastName">Last Name:</label>
-                        <input type="text" id="lastName" required pattern="^[A-Za-z ]+$">
-                        <p id="lastNameValidationMessage" class="error-message"></p>
-                        <br><br>
-        
-                        <label for="telephone">Telephone:</label>
-                        <input type="tel" id="telephone" required pattern="[0-9]{9}">
-                        <p id="telephoneValidationMessage" class="error-message"></p>
-                        <br><br>
-        
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}">
-                        <p id="emailValidationMessage" class="error-message"></p>
-                        <br><br>
-        
-                        <button type="button" id="submitBtn">Submit</button>
-                        <button type="button" id="cancelBtn">Cancel</button>
-                        <button type="button" id="clearBtn">Clear Fields</button>
-                
-                    </form>
-                </div>
-            </div>
+            </form>
+        </div>
+    </div>
 
             <div class="fil">
-                <a href="ordering.html">
                     <!-- hacer aqui el menu-->
-                    <div class="col">Pedir ya</div>
+                <a href="#popup-overlay">
+                    <div class="col" id="order">Pedir ya</div>
                 </a>
+    <div class="modal-content" id="popup-overlay">
+        <article id="pop-up-window">
+            <div class="top_bar"></div>
+            <div class="step">
+                <div class="step-text">Step 1</div>
+                <div class="dot"></div>
+            </div>
+            <div class="line"></div>
+            <div class="step">
+                <div class="step-text">Step 2</div>
+                <div class="dot"></div>
+            </div>
+            <div class="line"></div>
+            <div class="step">
+                <div class="step-text">Step 3</div>
+                <div class="dot"></div>   
+            </div>
+        </article>
+    </div>
                 <a href="#pie">
                     <div class="col">Contacto</div>
                 </a>
+
+            
 
             </div>
         </div>
