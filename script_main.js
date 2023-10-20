@@ -29,6 +29,37 @@ document.addEventListener('DOMContentLoaded', function () {
     const order = document.getElementById('order');
     const popupoverlay = document.getElementById('popup-overlay');
 
+    const contactForm = document.getElementById("contact-form");
+    const contactname = document.getElementById("nombre");
+    const contactsurname = document.getElementById("apellidos");
+    const contacttelf = document.getElementById("telefono");
+    const contactemail = document.getElementById("email2");
+    const contactsubject = document.getElementById("asunto");
+    const contactmessage = document.getElementById("mensaje");
+
+    const checkbox = document.getElementById('check');
+    const enviar = document.getElementById('enviar');
+    const exito = document.getElementById('exito');
+
+    checkbox.addEventListener('change', function(){
+        enviar.disabled = !this.checked;
+    });
+
+    enviar.addEventListener('click', function(event){
+        const contactinfo = {
+            contactname,
+            contactsurname,
+            contacttelf,
+            contactemail,
+            contactsubject,
+            contactmessage
+        };
+        localStorage.setItem('contactinfo', JSON.stringify(contactinfo));
+        exito.style.display = 'block';
+    });
+
+
+
     openModalDiv.addEventListener('click', function(event){
         dniValidationMessage.style.display = 'none';
         firstNameValidationMessage.style.display = 'none';
@@ -38,11 +69,14 @@ document.addEventListener('DOMContentLoaded', function () {
         signupModal.style.display = 'inline-block';
         event.preventDefault();
     });
-
+    
+    
     cancelBtn.addEventListener('click', () => {
         signupModal.style.display = 'none';
         clearInputFields();
     });
+
+    
 
     function clearInputFields() {
         dniInput.value = '';
@@ -50,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
         lastNameInput.value = '';
         telephoneInput.value = '';
         emailInput.value = '';
-    }
+    };
     
     clearBtn.addEventListener('click', clearInputFields);
 
@@ -140,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             localStorage.setItem('userData', JSON.stringify(userData));
             signupModal.style.display = 'none';
-        }
+        };
         
         console.log(dniValidationMessage.textContent);
         console.log(firstNameValidationMessage.textContent);
@@ -157,7 +191,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // Close the modal
         // signupModal.style.display = 'none';
     });
-
     order.addEventListener('click', function(event){
         popupoverlay.style.display = 'inline-block';
         event.preventDefault();
@@ -165,48 +198,50 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    const steps = document.querySelectorAll('.step');
-    const stepContents = document.querySelectorAll('.step-content');
-    let currentStep = 0;
+// TODO ESTO ES CODIGO DE PRUEBA PARA LOS PASOS AL HACER EL PEDIDO
 
-    function updateStepDisplay() {
-        steps.forEach((step, index) => {
-            if (index === currentStep) {
-                step.classList.add('active');
-            } else {
-                step.classList.remove('active');
-            }
-        });
+// document.addEventListener('DOMContentLoaded', function () {
+//     const steps = document.querySelectorAll('.step');
+//     const stepContents = document.querySelectorAll('.step-content');
+//     let currentStep = 0;
 
-        stepContents.forEach((content, index) => {
-            if (index === currentStep) {
-                content.style.display = 'block';
-            } else {
-                content.style.display = 'none';
-            }
-        });
-    }
+//     function updateStepDisplay() {
+//         steps.forEach((step, index) => {
+//             if (index === currentStep) {
+//                 step.classList.add('active');
+//             } else {
+//                 step.classList.remove('active');
+//             }
+//         });
 
-    function nextStep() {
-        if (currentStep < steps.length - 1) {
-            currentStep++;
-            updateStepDisplay();
-        }
-    }
+//         stepContents.forEach((content, index) => {
+//             if (index === currentStep) {
+//                 content.style.display = 'block';
+//             } else {
+//                 content.style.display = 'none';
+//             }
+//         });
+//     }
 
-    function prevStep() {
-        if (currentStep > 0) {
-            currentStep--;
-            updateStepDisplay();
-        }
-    }
+//     function nextStep() {
+//         if (currentStep < steps.length - 1) {
+//             currentStep++;
+//             updateStepDisplay();
+//         }
+//     }
 
-    // Handle "Next" and "Previous" button clicks
-    const nextButton = document.getElementById('nextButton');
-    const prevButton = document.getElementById('prevButton');
-    nextButton.addEventListener('click', nextStep);
-    prevButton.addEventListener('click', prevStep);
+//     function prevStep() {
+//         if (currentStep > 0) {
+//             currentStep--;
+//             updateStepDisplay();
+//         }
+//     }
 
-    updateStepDisplay();
-});
+//     // Handle "Next" and "Previous" button clicks
+//     const nextButton = document.getElementById('nextButton');
+//     const prevButton = document.getElementById('prevButton');
+//     nextButton.addEventListener('click', nextStep);
+//     prevButton.addEventListener('click', prevStep);
+
+//     updateStepDisplay();
+// });

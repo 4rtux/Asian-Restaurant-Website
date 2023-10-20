@@ -38,23 +38,24 @@
                     </div>
                     <div class="phone-email">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email2" name="email" required>
                     </div>
                 </div>
-                    <br>
-                    <label for="asunto">Asunto:</label>
-                    <input type="text" id="asunto" name="asunto" required>
-                    <br>
-                    
-                    <label for="mensaje">Mensaje:</label>
-                    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-                    <br>
-                    <div class="grid-priv">
-                        <input type="checkbox" id="check" name="privacidad" required>
-                        <p>He leído y acepto la política de privacidad</p>
-                    </div>
-                    <button id="enviar" type="submit" disabled>Enviar</button>
+                <br>
+                <label for="asunto">Asunto:</label>
+                <input type="text" id="asunto" name="asunto" required>
+                <br>
+                
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                <br>
             </form>
+            <div class="grid-priv">
+                <input type="checkbox" id="check" name="privacidad" required>
+                <label for="check">He leído y acepto la política de privacidad</label>
+            </div>
+            <button id="enviar" type="submit" disabled>Enviar</button>
+            <div id="exito">¡Mensaje enviado con exito! Gracias por tu mensaje. Le responderemos lo antes posible.</div>
         </div>
         
             <footer class="pie" id="pie">
