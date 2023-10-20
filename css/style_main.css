@@ -3,7 +3,7 @@ body{
     background-color: #181a1b;
 }
 .vacio{
-    height:115px;
+    height:150px;
 }
 .cont3{
     width: 100%;
@@ -28,6 +28,9 @@ body{
     max-width: 1080px;
     width: 100%;
 
+}
+#primero{
+    
 }
 .fil a{
     max-width: 500px;
@@ -317,7 +320,7 @@ a:hover{
         top: 2px;;
         margin-top: 20px;
         margin-bottom: 20px;
-        height: 313px;
+        height: 320px;
         width: 100%;
         
     }
@@ -349,6 +352,7 @@ a:hover{
         height: 100px;
         width: 100%;
         border-radius: 50px;
+
     
     }
  
@@ -386,8 +390,6 @@ a:hover{
         display: flex;
         justify-content: center;
         align-items: center;
-        padding-top: 20px;
-        padding-bottom: 10px;
     
     }
 
@@ -606,11 +608,9 @@ a:hover{
         padding:10px;
     }
     .section1:first-child{
-
         margin: 3px;
         height:550px;
         width: 100%;
-
 
     }
     .fil{

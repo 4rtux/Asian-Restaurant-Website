@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const clearBtn = document.getElementById('clearBtn');
 
     const order = document.getElementById('order');
-    const popupwindow = document.getElementById('pop-up-window');
+    const popupoverlay = document.getElementById('popup-overlay');
 
     openModalDiv.addEventListener('click', function(event){
         dniValidationMessage.style.display = 'none';
@@ -35,9 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
         lastNameValidationMessage.style.display = 'none';
         telephoneValidationMessage.style.display = 'none';
         emailValidationMessage.style.display = 'none';
-        popupwindow.style.display = 'none';
-        order.style.display = 'none';
-        signupModal.style.display = 'block';
+        signupModal.style.display = 'inline-block';
         event.preventDefault();
     });
 
@@ -161,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     order.addEventListener('click', function(event){
-        popupwindow.style.display = 'block';
+        popupoverlay.style.display = 'inline-block';
         event.preventDefault();
     });
 
