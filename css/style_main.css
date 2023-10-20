@@ -267,6 +267,93 @@ a:hover{
 }
 
 
+.container {
+    height:1080px;;
+    padding: 20px;
+    background-color: #181a1b;
+    text-align: center;
+    display:block;
+    color: #ccc;
+    font-family: 'Poppins';
+}
+
+h1 {
+    text-align: center;
+    color:#ccc;
+}
+#contact-form label{
+    display: block;
+    text-align: left;
+
+}
+#contact-form input, #contact-form textarea{
+    width: 90%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.grid-priv {
+
+
+}
+button {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #0077FF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:disabled {
+    background-color: #2e2e2e;
+    cursor: not-allowed;
+}
+/* footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+} */
+/* .redes-sociales a {
+    text-decoration: none;
+    color: #fff;
+    margin: 0 10px;
+} */
+.grid-name-email{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.name,
+.phone-email {
+    display: flex;
+    flex-direction: column;
+    width: 89%;
+}
+
+.name input,
+.phone-email input {
+    width: 100%;
+    background-color: #2e2e2e;
+    color:#e8e6e3;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+#asunto, #mensaje{
+    color:#ccc;
+    background-color: #2e2e2e;
+    display: block;
+}
+#check{
+    
+}
+
 @media only screen and (max-width: 600px) {
     html{
         scroll-behavior: smooth;
@@ -436,6 +523,24 @@ a:hover{
         z-index: 1001;
         background-color: #fff;
     }
+    .grid-name-email {
+        grid-template-columns: 1fr; /* Cambiamos a una sola columna en versiones móviles */
+    }
+    .name,
+    .phone-email {
+        width: 100%;
+        flex-direction: column; /* Cambiamos la dirección de los elementos en versión móvil */
+    }
+    .name input,
+    .phone-email input {
+        margin-bottom: 10px; /* Mantenemos el margen inferior en versión móvil */
+    }
+    .politica{
+        display: flex;
+        flex-direction:row;        
+    }
+    
+    
 
 }
 @media only screen and (min-width: 600px) {
