@@ -266,6 +266,111 @@ a:hover{
     justify-content: center;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
+.imagencarta{
+    box-sizing:border-box;
+    max-width: 160px;
+    min-width: 160px;
+    border-radius: 20px;
+    width:100%;
+    height:auto;
+    flex-grow: 0.5;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    overflow: hidden;
+}
+.textocarta{
+    display:flex;
+    justify-content:center;
+    margin-top: 12px;
+    max-height: 60px;
+    width: 95%;
+    padding:20px;
+    flex-grow: 1;
+    overflow-y: scroll;
+    color: #e8e6e3;
+}
+.boton{
+    justify-content:center;
+    height: 50%;
+    width: 40px;
+    margin:3px;
+    font-weight: 100;
+    background-color: #611329;
+    color: #e8e6e3;
+}
+.filcarta{
+    width: 100%;
+    display:flex;
+    box-sizing:border-box;
+    margin-bottom: 15px;
+
+}
+.filcartaUlt{
+    margin-bottom: 100px;
+    font-size: 100px;
+    height: 100px;
+    width: 100%;
+    border-radius: 50px;
+
+    background-color: #7b223b;
+    border: 3px solid #551829;
+    box-sizing:border-box;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gang of three';
+    color: #e8e6e3;
+    overflow:-moz-hidden-unscrollable;
+    transition: background-color 0.3s;
+
+}
+.titulocarta{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Gang of three';
+    color: #e8e6e3;
+    overflow:-moz-hidden-unscrollable;
+    font-size: x-large;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .container {
     height:1080px;;
