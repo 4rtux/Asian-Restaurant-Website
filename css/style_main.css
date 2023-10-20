@@ -29,9 +29,7 @@ body{
     width: 100%;
 
 }
-#primero{
-    
-}
+
 .fil a{
     max-width: 500px;
     margin: 3px;
@@ -382,6 +380,11 @@ a:hover{
     font-family: 'Poppins';
 }
 
+#exito{
+    display: none;
+    color:chartreuse;
+}
+
 h1 {
     text-align: center;
     color:#ccc;
@@ -400,7 +403,12 @@ h1 {
 }
 
 .grid-priv {
+    display: flex;
+    align-items: left;
 
+}
+.grid-priv input[type="checkbox"] {
+    margin-right: 10px; /* Agrega un margen derecho entre el checkbox y el texto */
 
 }
 button {
@@ -455,8 +463,8 @@ button:disabled {
     background-color: #2e2e2e;
     display: block;
 }
-#check{
-    
+#enviar{
+    font-family: "Poppins";
 }
 
 @media only screen and (max-width: 600px) {
