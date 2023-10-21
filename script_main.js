@@ -37,46 +37,56 @@ document.addEventListener('DOMContentLoaded', function () {
     const contactsubject = document.getElementById("asunto");
     const contactmessage = document.getElementById("mensaje");
 
-    const checkbox = document.getElementById('check');
+    const check = document.getElementById('check');
     const enviar = document.getElementById('enviar');
     const exito = document.getElementById('exito');
 
-    checkbox.addEventListener('change', function(){
-        enviar.disabled = !this.checked;
-    });
+    if (check){
+        check.addEventListener('change', function(){
+            enviar.disabled = !this.checked;
+        });
+    };
+    if (enviar){
+        enviar.addEventListener('click', function(){
 
-    enviar.addEventListener('click', function(event){
-        const contactinfo = {
-            contactname,
-            contactsurname,
-            contacttelf,
-            contactemail,
-            contactsubject,
-            contactmessage
-        };
-        localStorage.setItem('contactinfo', JSON.stringify(contactinfo));
-        exito.style.display = 'block';
-    });
+            const ctname = contactname.value.trim();
+            const ctsurname = contactsurname.value.trim();
+            const cttelf = contacttelf.value.replace(/ /g, '');
+            const ctemail = contactemail.value.trim();
+            const ctsubject = contactsubject.value.trim();
+            const ctmessage = contactmessage.value.trim();
 
+            const contactinfo = {
+                ctname,
+                ctsurname,
+                cttelf,
+                ctemail,
+                ctsubject,
+                ctmessage,
+            };
+            localStorage.setItem('contactinfo', JSON.stringify(contactinfo));
+            exito.style.display = 'block';
+            console.log(localStorage.getItem('contactinfo'));
+        });
+    };
 
-
-    openModalDiv.addEventListener('click', function(event){
-        dniValidationMessage.style.display = 'none';
-        firstNameValidationMessage.style.display = 'none';
-        lastNameValidationMessage.style.display = 'none';
-        telephoneValidationMessage.style.display = 'none';
-        emailValidationMessage.style.display = 'none';
-        signupModal.style.display = 'inline-block';
-        event.preventDefault();
-    });
-    
-    
-    cancelBtn.addEventListener('click', () => {
-        signupModal.style.display = 'none';
-        clearInputFields();
-    });
-
-    
+    if (openModalDiv) {
+        openModalDiv.addEventListener('click', function(event){
+            dniValidationMessage.style.display = 'none';
+            firstNameValidationMessage.style.display = 'none';
+            lastNameValidationMessage.style.display = 'none';
+            telephoneValidationMessage.style.display = 'none';
+            emailValidationMessage.style.display = 'none';
+            signupModal.style.display = 'inline-block';
+            event.preventDefault();
+        });
+    };
+    if (cancelBtn) {
+        cancelBtn.addEventListener('click', () => {
+            signupModal.style.display = 'none';
+            clearInputFields();
+        });
+    };
 
     function clearInputFields() {
         dniInput.value = '';
@@ -86,115 +96,120 @@ document.addEventListener('DOMContentLoaded', function () {
         emailInput.value = '';
     };
     
-    clearBtn.addEventListener('click', clearInputFields);
+    if (clearBtn) {
+        clearBtn.addEventListener('click', clearInputFields);
+    };
+    if (submitBtn) {
+        submitBtn.addEventListener('click', () => {
+            // Validate and store user information in localStorage
+            const dni = dniInput.value.trim();
+            const firstName = firstNameInput.value.trim();
+            const lastName = lastNameInput.value.trim();
+            const telephone = telephoneInput.value.replace(/ /g, '');
+            const email = emailInput.value.trim();
 
-    submitBtn.addEventListener('click', () => {
-        // Validate and store user information in localStorage
-        const dni = dniInput.value.trim();
-        const firstName = firstNameInput.value.trim();
-        const lastName = lastNameInput.value.trim();
-        const telephone = telephoneInput.value.replace(/ /g, '');
-        const email = emailInput.value.trim();
+            // Perform validation here (e.g., DNI, telephone, email format)
 
-        // Perform validation here (e.g., DNI, telephone, email format)
+            const numericPart = dni.slice(0, 8); // Get the first 8 characters (numeric part)
+            const providedLetter = dni.slice(8); // Get the provided letter
 
-        const numericPart = dni.slice(0, 8); // Get the first 8 characters (numeric part)
-        const providedLetter = dni.slice(8); // Get the provided letter
+            // Function to calculate the letter for a given DNI number
+            function calculateDNILetter(dniNumber) {
+                const letters = 'TRWAGMYFPDXBNJZSQVHLCKE';
+                const numericDNI = dniNumber % 23;
+                return letters.charAt(numericDNI);
+            }
 
-        // Function to calculate the letter for a given DNI number
-        function calculateDNILetter(dniNumber) {
-            const letters = 'TRWAGMYFPDXBNJZSQVHLCKE';
-            const numericDNI = dniNumber % 23;
-            return letters.charAt(numericDNI);
-        }
+            if (/^[0-9]{8}[a-zA-Z]$/.test(dni)) {
+                const calculatedLetter = calculateDNILetter(Number(numericPart));
+                
+                if (calculatedLetter.toUpperCase() === providedLetter.toUpperCase()) {
+                    counter++;
 
-        if (/^[0-9]{8}[a-zA-Z]$/.test(dni)) {
-            const calculatedLetter = calculateDNILetter(Number(numericPart));
-            
-            if (calculatedLetter.toUpperCase() === providedLetter.toUpperCase()) {
-                counter++;
+                } else {
+                    dniValidationMessage.style.display = 'inline';
+                    dniValidationMessage.textContent = 'DNI is not valid.';
+                    dniValidationMessage.style.color = 'red';
 
+                }
             } else {
                 dniValidationMessage.style.display = 'inline';
-                dniValidationMessage.textContent = 'DNI is not valid.';
+                dniValidationMessage.textContent = 'DNI format is not valid.';
                 dniValidationMessage.style.color = 'red';
 
             }
-        } else {
-            dniValidationMessage.style.display = 'inline';
-            dniValidationMessage.textContent = 'DNI format is not valid.';
-            dniValidationMessage.style.color = 'red';
+            // Validate first name and last name
+            
+            if (/^[a-zA-Z ]+$/.test(firstName)) {
+                counter++;
+            } else {
+                firstNameValidationMessage.style.display = 'inline';
+                firstNameValidationMessage.textContent = 'Invalid First Name.';
+                firstNameValidationMessage.style.color = 'red';
+            }
+            if (/^[a-zA-Z ]+$/.test(lastName)) {
+                counter++;
+            } else {
+                lastNameValidationMessage.style.display = 'inline';
+                lastNameValidationMessage.textContent = 'Invalid Last Name.';
+                lastNameValidationMessage.style.color = 'red';
+            }
+            
+            // Validate telephone number
+            if (/^(\+34|0034|34)?[6|7|8|9][0-9]{8}$/.test(telephone)) {
+                counter++;
+            } else {
+                telephoneValidationMessage.style.display = 'inline';
+                telephoneValidationMessage.textContent = 'Invalid Telephone.';
+                telephoneValidationMessage.style.color = 'red';
+            }
 
-        }
-        // Validate first name and last name
-        
-        if (/^[a-zA-Z ]+$/.test(firstName)) {
-            counter++;
-        } else {
-            firstNameValidationMessage.style.display = 'inline';
-            firstNameValidationMessage.textContent = 'Invalid First Name.';
-            firstNameValidationMessage.style.color = 'red';
-        }
-        if (/^[a-zA-Z ]+$/.test(lastName)) {
-            counter++;
-        } else {
-            lastNameValidationMessage.style.display = 'inline';
-            lastNameValidationMessage.textContent = 'Invalid Last Name.';
-            lastNameValidationMessage.style.color = 'red';
-        }
-        
-        // Validate telephone number
-        if (/^(\+34|0034|34)?[6|7|8|9][0-9]{8}$/.test(telephone)) {
-            counter++;
-        } else {
-            telephoneValidationMessage.style.display = 'inline';
-            telephoneValidationMessage.textContent = 'Invalid Telephone.';
-            telephoneValidationMessage.style.color = 'red';
-        }
+            // Validate email
+            if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]{2,4}$/.test(email)) {
+                counter++;
+            } else {
+                emailValidationMessage.style.display = 'inline';
+                emailValidationMessage.textContent = 'Invalid Email.';
+                emailValidationMessage.style.color = 'red';
+            }
 
-        // Validate email
-        if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z0-9]{2,4}$/.test(email)) {
-            counter++;
-        } else {
-            emailValidationMessage.style.display = 'inline';
-            emailValidationMessage.textContent = 'Invalid Email.';
-            emailValidationMessage.style.color = 'red';
-        }
+            // Check if all validations were correct
+            if (counter == 5) {
+                // Store in localStorage
+                const userData = {
+                    dni,
+                    firstName,
+                    lastName,
+                    telephone,
+                    email,
+                };
 
-        // Check if all validations were correct
-        if (counter == 5) {
-            // Store in localStorage
-            const userData = {
-                dni,
-                firstName,
-                lastName,
-                telephone,
-                email,
+                localStorage.setItem('userData', JSON.stringify(userData));
+                signupModal.style.display = 'none';
             };
+            
+            console.log(dniValidationMessage.textContent);
+            console.log(firstNameValidationMessage.textContent);
+            console.log(lastNameValidationMessage.textContent);
+            console.log(telephoneValidationMessage.textContent);
+            console.log(emailValidationMessage.textContent);
+            console.log(counter);
 
-            localStorage.setItem('userData', JSON.stringify(userData));
-            signupModal.style.display = 'none';
-        };
-        
-        console.log(dniValidationMessage.textContent);
-        console.log(firstNameValidationMessage.textContent);
-        console.log(lastNameValidationMessage.textContent);
-        console.log(telephoneValidationMessage.textContent);
-        console.log(emailValidationMessage.textContent);
-        console.log(counter);
-
-        // Check if the data was stored correctly
-        var usr = localStorage.getItem('userData');
-        console.log(usr);
+            // Check if the data was stored correctly
+            var usr = localStorage.getItem('userData');
+            console.log(usr);
 
 
-        // Close the modal
-        // signupModal.style.display = 'none';
-    });
-    order.addEventListener('click', function(event){
-        popupoverlay.style.display = 'inline-block';
-        event.preventDefault();
-    });
+            // Close the modal
+            // signupModal.style.display = 'none';
+        });
+    };
+    if (order) {
+        order.addEventListener('click', function(event){
+            popupoverlay.style.display = 'inline-block';
+            event.preventDefault();
+        });
+    };
 
 });
 

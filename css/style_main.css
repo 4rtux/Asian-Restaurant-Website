@@ -291,34 +291,46 @@ a:hover{
     flex-grow: 1;
     overflow-y: scroll;
     color: #e8e6e3;
+    font-family: 'Poppins';
 }
 .boton{
-    justify-content:center;
-    height: 50%;
-    width: 40px;
-    margin:3px;
-    font-weight: 100;
+    border-bottom: 16px solid #611329;
+    height: 20%;
+    padding: 10px;
+    margin-top:10px;
+    font-family: "Poppins";
     background-color: #611329;
     color: #e8e6e3;
+}
+.cantidad{
+    margin:15px;
+    color: #e8e6e3;
+    font-family: 'Poppins';
+
+}
+.cantidades{
+    margin:0px 10px 0px 20px;
 }
 .filcarta{
     width: 100%;
     display:flex;
     box-sizing:border-box;
     margin-bottom: 15px;
-
+}
+.titulotexto{
+    display: block;
+    flex-grow: 1;
 }
 .filcartaUlt{
-    margin-bottom: 100px;
-    font-size: 100px;
+    font-size: 50px;
     height: 100px;
-    width: 100%;
+    width: 40%;
     border-radius: 50px;
-
+    margin: 20px;
     background-color: #7b223b;
     border: 3px solid #551829;
     box-sizing:border-box;
-    flex-grow: 1;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -337,6 +349,30 @@ a:hover{
     color: #e8e6e3;
     overflow:-moz-hidden-unscrollable;
     font-size: x-large;
+}
+.precios{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins';
+    color: #e8e6e3;
+    padding-bottom:30px;
+    margin: 0px 10px 0px 0px;
+    overflow:-moz-hidden-unscrollable;
+}
+.pasar-a-pago{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    font-family: 'Poppins';
+    color: #e8e6e3;
+    overflow:-moz-hidden-unscrollable;
+
+}
+.vacio2{
+    height: 100px;
+    width: 100%;
 }
 
 
@@ -386,6 +422,7 @@ a:hover{
 }
 
 h1 {
+    padding-right:8%;
     text-align: center;
     color:#ccc;
 }
