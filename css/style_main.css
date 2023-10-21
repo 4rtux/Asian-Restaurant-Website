@@ -156,7 +156,7 @@ nav{
     color:#e8e6e3;
     background-color: #7b223b;
     padding-bottom: 20px;
-}
+} 
 
 nav img{
     width: 60px;
@@ -284,10 +284,9 @@ a:hover{
 .textocarta{
     display:flex;
     justify-content:center;
-    margin-top: 12px;
-    max-height: 60px;
+    margin: 12px 0px 0px 10px;
+    max-height:120px;
     width: 95%;
-    padding:20px;
     flex-grow: 1;
     overflow-y: scroll;
     color: #e8e6e3;
@@ -358,7 +357,7 @@ a:hover{
     color: #e8e6e3;
     padding-bottom:30px;
     margin: 0px 10px 0px 0px;
-    overflow:-moz-hidden-unscrollable;
+    overflow:visible
 }
 .pasar-a-pago{
     display: flex;
