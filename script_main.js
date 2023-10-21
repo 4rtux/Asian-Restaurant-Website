@@ -41,6 +41,45 @@ document.addEventListener('DOMContentLoaded', function () {
     const enviar = document.getElementById('enviar');
     const exito = document.getElementById('exito');
 
+    const incrementButtons = document.querySelectorAll(".aumentar");
+    const decrementButtons = document.querySelectorAll(".disminuir");
+    const cantidadSpans = document.querySelectorAll(".cantidad");
+    const precioTotalElements = document.querySelectorAll(".precio");
+    const totalCompraElement = document.querySelector(".total-a-pagar");
+
+    let preciosUnitarios = [5.99, 4.99, 4.99, 3.99, 3.99]; // Precios unitarios de los productos
+    let cantidades = [0, 0, 0, 0, 0]; // Cantidad de productos añadidos
+    let preciosTotales = [0, 0, 0, 0, 0]; // Precio total de cada producto
+
+    function actualizarResumen() {
+        let totalCompra = preciosTotales.reduce((a, b) => a + b, 0);
+        totalCompraElement.textContent = `${totalCompra.toFixed(2)}`;
+    }
+
+    function actualizarProducto(index) {
+        preciosTotales[index] = preciosUnitarios[index] * cantidades[index];
+        precioTotalElements[index].textContent = `${preciosTotales[index].toFixed(2)}`;
+        actualizarResumen();
+    }
+
+    incrementButtons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+            cantidades[index]++;
+            cantidadSpans[index].textContent = cantidades[index];
+            actualizarProducto(index);
+        });
+    });
+
+    decrementButtons.forEach((button, index) => {
+        button.addEventListener("click", () => {
+            if (cantidades[index] > 0) {
+                cantidades[index]--;
+                cantidadSpans[index].textContent = cantidades[index];
+                actualizarProducto(index);
+            }
+        });
+    });
+
     if (check){
         check.addEventListener('change', function(){
             enviar.disabled = !this.checked;
@@ -210,6 +249,7 @@ document.addEventListener('DOMContentLoaded', function () {
             event.preventDefault();
         });
     };
+
 
 });
 

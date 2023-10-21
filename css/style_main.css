@@ -275,7 +275,7 @@ a:hover{
     border-radius: 20px;
     width:100%;
     height:auto;
-    flex-grow: 0.5;
+    flex-grow: 1;
     display: flex;
     justify-content:center;
     align-items: center;
@@ -292,7 +292,8 @@ a:hover{
     color: #e8e6e3;
     font-family: 'Poppins';
 }
-.boton{
+.aumentar,
+.disminuir{
     border-bottom: 16px solid #611329;
     height: 20%;
     padding: 10px;
@@ -350,14 +351,15 @@ a:hover{
     font-size: x-large;
 }
 .precios{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display:block;
     font-family: 'Poppins';
     color: #e8e6e3;
     padding-bottom:30px;
     margin: 0px 10px 0px 0px;
     overflow:visible
+}
+.total{
+    padding-top: 50px;
 }
 .pasar-a-pago{
     display: flex;
