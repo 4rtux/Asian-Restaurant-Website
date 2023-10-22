@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const order = document.getElementById('order');
     const popupoverlay = document.getElementById('popup-overlay');
 
-    const contactForm = document.getElementById("contact-form");
     const contactname = document.getElementById("nombre");
     const contactsurname = document.getElementById("apellidos");
     const contacttelf = document.getElementById("telefono");
@@ -44,22 +43,36 @@ document.addEventListener('DOMContentLoaded', function () {
     const incrementButtons = document.querySelectorAll(".aumentar");
     const decrementButtons = document.querySelectorAll(".disminuir");
     const cantidadSpans = document.querySelectorAll(".cantidad");
+    // const cantidadSpans2 = document.querySelectorAll(".cantidad2");
     const precioTotalElements = document.querySelectorAll(".precio");
+    // const precioTotalElements2 = document.querySelectorAll(".precio2");
     const totalCompraElement = document.querySelector(".total-a-pagar");
+    // const totalCompraElement2 = document.querySelector(".total-a-pagar2");
+    const irapago = document.getElementById('ir-a-pago');
+    const currentPage = window.location.pathname.split('/').pop();
 
     let preciosUnitarios = [5.99, 4.99, 4.99, 3.99, 3.99]; // Precios unitarios de los productos
     let cantidades = [0, 0, 0, 0, 0]; // Cantidad de productos añadidos
     let preciosTotales = [0, 0, 0, 0, 0]; // Precio total de cada producto
 
+     // Precio total de cada producto
+
     function actualizarResumen() {
         let totalCompra = preciosTotales.reduce((a, b) => a + b, 0);
         totalCompraElement.textContent = `${totalCompra.toFixed(2)}`;
+        const orderinfo = {
+            cantidades,
+            preciosTotales,
+            totalCompra,
+        };
+        localStorage.setItem('orderinfo', JSON.stringify(orderinfo));
     }
 
     function actualizarProducto(index) {
         preciosTotales[index] = preciosUnitarios[index] * cantidades[index];
         precioTotalElements[index].textContent = `${preciosTotales[index].toFixed(2)}`;
         actualizarResumen();
+        
     }
 
     incrementButtons.forEach((button, index) => {
@@ -67,6 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
             cantidades[index]++;
             cantidadSpans[index].textContent = cantidades[index];
             actualizarProducto(index);
+
         });
     });
 
@@ -76,9 +90,27 @@ document.addEventListener('DOMContentLoaded', function () {
                 cantidades[index]--;
                 cantidadSpans[index].textContent = cantidades[index];
                 actualizarProducto(index);
+
             }
         });
     });
+
+    const orderinfo = JSON.parse(localStorage.getItem('orderinfo'));
+
+    if (currentPage === 'paying.html') {
+        const cantidades2 = orderinfo.cantidades;
+        const preciosTotales2 = orderinfo.preciosTotales;
+        const totalCompra2 = orderinfo.totalCompra;
+        
+            for (let i = 0; i < cantidades2.length; i++) {
+            cantidadSpans[i].textContent = cantidades2[i];
+            precioTotalElements[i].textContent = `${preciosTotales2[i].toFixed(2)}€`;
+            }
+            
+            totalCompraElement.textContent = `${totalCompra2.toFixed(2)}€`;
+    };
+
+       // Ejecuta las funciones solo en "prueba.html"
 
     if (check){
         check.addEventListener('change', function(){
@@ -158,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const numericDNI = dniNumber % 23;
                 return letters.charAt(numericDNI);
             }
-
+            // Validate DNI
             if (/^[0-9]{8}[a-zA-Z]$/.test(dni)) {
                 const calculatedLetter = calculateDNILetter(Number(numericPart));
                 

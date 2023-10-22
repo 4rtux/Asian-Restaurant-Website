@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0">
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style_main.css">
-    <link rel="shortcut icon" href="media/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="media/favicon.ico" type="image/x-icon">   
+    <link rel="icon" href="media/logo.png" type="image/x-icon"> 
 </head>
     <body>
         <header>
@@ -22,25 +21,23 @@
         </header>
             
 
-            <div class="modal-content" id="popup-overlay">
-                <article id="pop-up-window">
-                    <div class="top_bar"></div>
-                    <div class="step">
-                        <div class="step-text">Step 1</div>
-                        <div class="dot"></div>
-                    </div>
-                    <div class="line"></div>
-                    <div class="step">
-                        <div class="step-text">Step 2</div>
-                        <div class="dot"></div>
-                    </div>
-                    <div class="line"></div>
-                    <div class="step">
-                        <div class="step-text">Step 3</div>
-                        <div class="dot"></div>   
-                    </div>
-                </article>
-            </div>
+        <div class="breadcrumb">
+            <ul>
+                <li class="active"><a href="index.tml">
+                    <i class="fas fa-tshirt icon"><img src="media/tienda.png" alt="tienda"></i>
+                    <p>Tienda</p>
+                </a></li>
+                <li><a href="#">
+                    <i class="fas fa-shopping-cart icon"><img src="media/carro.png" alt="tienda"></i>
+                    <p>Carrito</p>
+                </a></li>
+                <li><a href="#">
+                    <i class="far fa-credit-card icon"><img src="media/bolsa-de-la-compra.png" alt="tienda"></i>
+                    <p>Pedido</p>
+                </a></li>
+            </ul>
+        </div>
+
 
             <div>
                 
@@ -188,13 +185,15 @@
                 </div>
                 <div class="pasar-a-pago">
                     <span>Total: <span class="total-a-pagar" id="total">0</span>€</span>
-                    <div class="filcartaUlt">PAGAR</div>
+                    <a href="paying.html">
+                        <div id="ir-a-pago"class="col">IR A PAGO</div>
+                    </a>
                 </div>
                 <div class="vacio2"></div>
                 
                 
 
-
+                filcartaUlt
             </div>
             
         
