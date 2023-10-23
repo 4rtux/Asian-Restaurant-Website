@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
             precioTotalElements[i].textContent = `${preciosTotales2[i].toFixed(2)}€`;
             }
             
-            totalCompraElement.textContent = `${totalCompra2.toFixed(2)}€`;
+            totalCompraElement.textContent = `Total a pagar: ${totalCompra2.toFixed(2)}€`;
     };
 
        // Ejecuta las funciones solo en "prueba.html"

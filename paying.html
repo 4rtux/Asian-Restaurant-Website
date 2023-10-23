@@ -1,12 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="css/style_main.css">
 </head>
 <body>
-  <div class="countdown-container">
-    <div class="countdown-timer" id="countdown">10:00</div>
-  </div>
-  <script src="script.js"></script>
+  <div class="resumen-pedido">
+    <table>
+        <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio Unitario</th>
+            <th>Precio Total</th>
+        </tr>
+        <tr>
+            <td>Producto 1</td>
+            <td><span class="cantidad">0</span></td>
+            <td>$10</td>
+            <td class="precio">$0</td>
+        </tr>
+        <tr>
+            <td>Producto 2</td>
+            <td><span class="cantidad">0</span></td>
+            <td>$10</td>
+            <td class="precio">$0</td>
+        </tr>
+        <tr>
+            <td>Producto 3</td>
+            <td><span class="cantidad">0</span></td>
+            <td>$10</td>
+            <td class="precio">$0</td>
+        </tr>
+        <tr>
+            <td>Producto 4</td>
+            <td><span class="cantidad">0</span></td>
+            <td>$10</td>
+            <td class="precio">$0</td>
+        </tr>
+        <tr>
+            <td>Producto 5</td>
+            <td><span class="cantidad">0</span></td>
+            <td>$10</td>
+            <td class="precio">$0</td>
+        </tr>
+        
+        <!-- Repite este bloque de fila para los otros productos (Producto 2 al Producto 5) -->
+        
+    </table>
+    <p class="total-a-pagar">Total a pagar: $0</p>
+</div>
+
+  <script src="script_main.js"></script>
 </body>
 </html>
