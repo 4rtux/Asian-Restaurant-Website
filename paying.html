@@ -4,6 +4,17 @@
   <link rel="stylesheet" type="text/css" href="css/style_main.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="media/logo.png" alt="zatoichi logo">
+            </div>
+            <ul class="nav-links">
+                <li><a onclick="window.location.reload();">INICIO</a></li>
+                <li><a href="#">CARTA</a></li>
+            </ul>
+        </nav>
+    </header>
   <div class="resumen-pedido">
     <table>
         <tr>
@@ -15,40 +26,63 @@
         <tr>
             <td>Producto 1</td>
             <td><span class="cantidad">0</span></td>
-            <td>$10</td>
+            <td>5.99€</td>
             <td class="precio">$0</td>
         </tr>
         <tr>
             <td>Producto 2</td>
             <td><span class="cantidad">0</span></td>
-            <td>$10</td>
+            <td>4.99€</td>
             <td class="precio">$0</td>
         </tr>
         <tr>
             <td>Producto 3</td>
             <td><span class="cantidad">0</span></td>
-            <td>$10</td>
+            <td>4.99€</td>
             <td class="precio">$0</td>
         </tr>
         <tr>
             <td>Producto 4</td>
             <td><span class="cantidad">0</span></td>
-            <td>$10</td>
+            <td>3.99€</td>
             <td class="precio">$0</td>
         </tr>
         <tr>
             <td>Producto 5</td>
             <td><span class="cantidad">0</span></td>
-            <td>$10</td>
+            <td>4.99€</td>
             <td class="precio">$0</td>
         </tr>
         
         <!-- Repite este bloque de fila para los otros productos (Producto 2 al Producto 5) -->
         
     </table>
-    <p class="total-a-pagar">Total a pagar: $0</p>
-</div>
+        <p class="total-a-pagar">Total a pagar: $0</p>
+    </div>
 
   <script src="script_main.js"></script>
+  
+    <div >
+        <a href="paying.html" >
+            <div id="ir-a-pago" class="col confirmar">Confirmar</div>
+        </a>
+
+    </div>   
+    
+
+
+
+<footer class="pie" id="pie">
+    <div class="grupo">
+        <div class="box">
+            <img src="media/logo.png" alt="zatoichi logo">
+        </div>
+        <div class="box">
+            <p>© Todos los derechos reservados</p>
+            <p>IG: @zatoichisushi / Facebook: Zatoichi Sushi</p>
+        </div>
+        
+    </div>
+</footer>
 </body>
 </html>
