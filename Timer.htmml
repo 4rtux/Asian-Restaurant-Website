@@ -1,9 +1,46 @@
 <!DOCTYPE html>
+
 <html>
-<head>
-  <link rel="stylesheet" type="text/css" href="css/style_main.css">
-</head>
-<body>
- 
-</body>
+    
+    <body>
+        <head>
+          <link rel="stylesheet" href="css/style_main.css">
+                                          
+        </head>
+        <nav>
+          <div class="logo">
+              <img src="media/logo.png" alt="zatoichi logo">
+          </div>
+          <ul class="nav-links">
+              <li><a onclick="window.location.reload();">INICIO</a></li>
+              <li><a href="#">CARTA</a></li>
+          </ul>
+        </nav>
+          <div class="container">
+              <div class="circular-progress">
+                  <span class="progress-value">0%</span>
+              </div>
+              <div class="fil">Progreso de tu pedido</div>
+          </div>
+          
+
+
+          <script src="script_main.js"></script>
+
+
+
+          <footer class="pie" id="pie">
+            <div class="grupo">
+                <div class="box">
+                    <img src="media/logo.png" alt="zatoichi logo">
+                </div>
+                <div class="box">
+                    <p>© Todos los derechos reservados</p>
+                    <p>IG: @zatoichisushi / Facebook: Zatoichi Sushi</p>
+                </div>
+                
+            </div>
+        </footer>
+
+    </body>
 </html>

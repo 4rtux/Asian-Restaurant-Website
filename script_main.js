@@ -285,6 +285,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+let circularProgress = document.querySelector(".circular-progress"),
+progressValue = document.querySelector(".progress-value");
+let progressStartValue = 0,    
+progressEndValue = 100,    
+speed = 6000;
+
+let progress = setInterval(() => {
+    progressStartValue++;
+    progressValue.textContent = `${progressStartValue}%`
+    circularProgress.style.background = `conic-gradient(#7d2ae8 ${progressStartValue * 3.6}deg, #ededed 0deg)`
+    if(progressStartValue == progressEndValue){
+        clearInterval(progress);
+    }    
+}, speed);
+
 // TODO ESTO ES CODIGO DE PRUEBA PARA LOS PASOS AL HACER EL PEDIDO
 
 // document.addEventListener('DOMContentLoaded', function () {
