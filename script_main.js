@@ -285,20 +285,53 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-let circularProgress = document.querySelector(".circular-progress"),
-progressValue = document.querySelector(".progress-value");
-let progressStartValue = 0,    
-progressEndValue = 100,    
-speed = 6000;
+// let circularProgress = document.querySelector(".circular-progress"),
+// progressValue = document.querySelector(".progress-value");
+// let progressStartValue = 0,    
+// progressEndValue = 100,    
+// speed = 6000;
 
-let progress = setInterval(() => {
-    progressStartValue++;
-    progressValue.textContent = `${progressStartValue}%`
-    circularProgress.style.background = `conic-gradient(#7d2ae8 ${progressStartValue * 3.6}deg, #ededed 0deg)`
-    if(progressStartValue == progressEndValue){
-        clearInterval(progress);
-    }    
-}, speed);
+// let progress = setInterval(() => {
+//     progressStartValue++;
+//     progressValue.textContent = `${progressStartValue}%`
+//     circularProgress.style.background = `conic-gradient(#bf5f6a ${progressStartValue * 3.6}deg, #ededed 0deg)`
+//     if(progressStartValue == progressEndValue){
+//         clearInterval(progress);
+//     }    
+// }, speed);
+
+let timerDisplay = document.querySelector(".progress-value");
+circularProgress = document.querySelector(".circular-progress");
+let timerStartValue = 600, // 10 minutes in seconds
+    timerEndValue = 0,     // 0 minutes in seconds
+    interval = 1000;       // 1 second interval
+
+function updateTimerDisplay(minutes, seconds) {
+    let formattedMinutes = String(minutes).padStart(2, '0');
+    let formattedSeconds = String(seconds).padStart(2, '0');
+    timerDisplay.textContent = `${formattedMinutes}:${formattedSeconds}`;
+
+}
+
+let timer = setInterval(() => {
+    if (timerStartValue > timerEndValue) {
+        let minutes = Math.floor(timerStartValue / 60);
+        let seconds = timerStartValue % 60;
+
+        // Update the circular progress
+        let progressPercentage = ((timerStartValue / 600) * 100).toFixed(2);
+        circularProgress.style.background = `conic-gradient(#bf5f6a ${progressPercentage}%, #ededed ${progressPercentage}% 100%)`;
+
+        updateTimerDisplay(minutes, seconds);
+        timerStartValue--;
+    } else {
+        clearInterval(timer);
+        updateTimerDisplay(0, 0); // Display "00:00" when the timer reaches 0 minutes
+        circularProgress.style.background = `conic-gradient(#bf5f6a 0%, #ededed 0% 100%)`;
+    }
+}, interval);
+
+
 
 // TODO ESTO ES CODIGO DE PRUEBA PARA LOS PASOS AL HACER EL PEDIDO
 

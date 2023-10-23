@@ -447,7 +447,15 @@ td{
 
 
 
+.counter{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+}
 .container{
     border-radius: 8px;
     background: #fff;
@@ -458,10 +466,11 @@ td{
     height: 250px;
     width: 250px;
     border-radius: 50%;
-    background: conic-gradient(#7d2ae8 3.6deg, #ededed 0deg);
+    background: conic-gradient(#bf5f6a 360deg, #ededed 0deg);
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 30px;
 }
 .circular-progress::before{
     content: "";
@@ -475,7 +484,7 @@ td{
     position: relative;
     font-size: 40px;
     font-weight: 600;
-    color: #7d2ae8;
+    color: #bf5f6a;
 }
 .text{
     font-size: 30px;
