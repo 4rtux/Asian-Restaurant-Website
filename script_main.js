@@ -3,6 +3,8 @@
 // Variable que cuenta el n de validaciones correctas, si es igual a 5, se guarda en localStorage
 var counter = 0;
 
+const currentPage = window.location.pathname.split('/').pop();
+
 document.addEventListener('DOMContentLoaded', function () {
     const openModalDiv = document.getElementById('openModalDiv');
     const signupModal = document.getElementById('signupModal');
@@ -43,13 +45,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const incrementButtons = document.querySelectorAll(".aumentar");
     const decrementButtons = document.querySelectorAll(".disminuir");
     const cantidadSpans = document.querySelectorAll(".cantidad");
-    // const cantidadSpans2 = document.querySelectorAll(".cantidad2");
     const precioTotalElements = document.querySelectorAll(".precio");
-    // const precioTotalElements2 = document.querySelectorAll(".precio2");
     const totalCompraElement = document.querySelector(".total-a-pagar");
-    // const totalCompraElement2 = document.querySelector(".total-a-pagar2");
-    const irapago = document.getElementById('ir-a-pago');
-    const currentPage = window.location.pathname.split('/').pop();
+    
 
     let preciosUnitarios = [5.99, 4.99, 4.99, 3.99, 3.99]; // Precios unitarios de los productos
     let cantidades = [0, 0, 0, 0, 0]; // Cantidad de productos añadidos
@@ -148,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
             lastNameValidationMessage.style.display = 'none';
             telephoneValidationMessage.style.display = 'none';
             emailValidationMessage.style.display = 'none';
-            signupModal.style.display = 'inline-block';
+            signupModal.style.display = 'flex';
             event.preventDefault();
         });
     };
@@ -285,98 +283,35 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-// let circularProgress = document.querySelector(".circular-progress"),
-// progressValue = document.querySelector(".progress-value");
-// let progressStartValue = 0,    
-// progressEndValue = 100,    
-// speed = 6000;
+if (currentPage === 'checkout.html') {
+    let timerDisplay = document.querySelector(".progress-value");
+    circularProgress = document.querySelector(".circular-progress");
+    let timerStartValue = 600, // 10 minutes in seconds
+        timerEndValue = 0,     // 0 minutes in seconds
+        interval = 1000;       // 1 second interval
 
-// let progress = setInterval(() => {
-//     progressStartValue++;
-//     progressValue.textContent = `${progressStartValue}%`
-//     circularProgress.style.background = `conic-gradient(#bf5f6a ${progressStartValue * 3.6}deg, #ededed 0deg)`
-//     if(progressStartValue == progressEndValue){
-//         clearInterval(progress);
-//     }    
-// }, speed);
+    function updateTimerDisplay(minutes, seconds) {
+        let formattedMinutes = String(minutes).padStart(2, '0');
+        let formattedSeconds = String(seconds).padStart(2, '0');
+        timerDisplay.textContent = `${formattedMinutes}:${formattedSeconds}`;
 
-let timerDisplay = document.querySelector(".progress-value");
-circularProgress = document.querySelector(".circular-progress");
-let timerStartValue = 600, // 10 minutes in seconds
-    timerEndValue = 0,     // 0 minutes in seconds
-    interval = 1000;       // 1 second interval
-
-function updateTimerDisplay(minutes, seconds) {
-    let formattedMinutes = String(minutes).padStart(2, '0');
-    let formattedSeconds = String(seconds).padStart(2, '0');
-    timerDisplay.textContent = `${formattedMinutes}:${formattedSeconds}`;
-
-}
-
-let timer = setInterval(() => {
-    if (timerStartValue > timerEndValue) {
-        let minutes = Math.floor(timerStartValue / 60);
-        let seconds = timerStartValue % 60;
-
-        // Update the circular progress
-        let progressPercentage = ((timerStartValue / 600) * 100).toFixed(2);
-        circularProgress.style.background = `conic-gradient(#bf5f6a ${progressPercentage}%, #ededed ${progressPercentage}% 100%)`;
-
-        updateTimerDisplay(minutes, seconds);
-        timerStartValue--;
-    } else {
-        clearInterval(timer);
-        updateTimerDisplay(0, 0); // Display "00:00" when the timer reaches 0 minutes
-        circularProgress.style.background = `conic-gradient(#bf5f6a 0%, #ededed 0% 100%)`;
     }
-}, interval);
 
+    let timer = setInterval(() => {
+        if (timerStartValue > timerEndValue) {
+            let minutes = Math.floor(timerStartValue / 60);
+            let seconds = timerStartValue % 60;
 
+            // Update the circular progress
+            let progressPercentage = ((timerStartValue / 600) * 100).toFixed(2);
+            circularProgress.style.background = `conic-gradient(#bf5f6a ${progressPercentage}%, #ededed ${progressPercentage}% 100%)`;
 
-// TODO ESTO ES CODIGO DE PRUEBA PARA LOS PASOS AL HACER EL PEDIDO
-
-// document.addEventListener('DOMContentLoaded', function () {
-//     const steps = document.querySelectorAll('.step');
-//     const stepContents = document.querySelectorAll('.step-content');
-//     let currentStep = 0;
-
-//     function updateStepDisplay() {
-//         steps.forEach((step, index) => {
-//             if (index === currentStep) {
-//                 step.classList.add('active');
-//             } else {
-//                 step.classList.remove('active');
-//             }
-//         });
-
-//         stepContents.forEach((content, index) => {
-//             if (index === currentStep) {
-//                 content.style.display = 'block';
-//             } else {
-//                 content.style.display = 'none';
-//             }
-//         });
-//     }
-
-//     function nextStep() {
-//         if (currentStep < steps.length - 1) {
-//             currentStep++;
-//             updateStepDisplay();
-//         }
-//     }
-
-//     function prevStep() {
-//         if (currentStep > 0) {
-//             currentStep--;
-//             updateStepDisplay();
-//         }
-//     }
-
-//     // Handle "Next" and "Previous" button clicks
-//     const nextButton = document.getElementById('nextButton');
-//     const prevButton = document.getElementById('prevButton');
-//     nextButton.addEventListener('click', nextStep);
-//     prevButton.addEventListener('click', prevStep);
-
-//     updateStepDisplay();
-// });
+            updateTimerDisplay(minutes, seconds);
+            timerStartValue--;
+        } else {
+            clearInterval(timer);
+            updateTimerDisplay(0, 0); // Display "00:00" when the timer reaches 0 minutes
+            circularProgress.style.background = `conic-gradient(#bf5f6a 0%, #ededed 0% 100%)`;
+        }
+    }, interval);
+}

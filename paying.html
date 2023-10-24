@@ -10,7 +10,7 @@
                 <img src="media/logo.png" alt="zatoichi logo">
             </div>
             <ul class="nav-links">
-                <li><a onclick="window.location.reload();">INICIO</a></li>
+                <li><a href="index.html">INICIO</a></li>
                 <li><a href="#">CARTA</a></li>
             </ul>
         </nav>
@@ -19,73 +19,72 @@
     <div class="breadcrumb">
         <ul>
             <li><a href="ordering.html">
-                <i class="fas fa-tshirt icon"><img src="media/tienda.png" alt="tienda"></i>
+                <i class="icon"><img src="media/tienda.png" alt="tienda"></i>
                 <p>Tienda</p>
             </a></li>
             <li class="active"><a href="#">
-                <i class="fas fa-shopping-cart icon"><img src="media/carro.png" alt="tienda"></i>
+                <i class="icon"><img src="media/carro.png" alt="carro"></i>
                 <p>Carrito</p>
             </a></li>
             <li><a href="#">
-                <i class="far fa-credit-card icon"><img src="media/bolsa-de-la-compra.png" alt="tienda"></i>
+                <i class="icon"><img src="media/bolsa-de-la-compra.png" alt="bolso"></i>
                 <p>Pedido</p>
             </a></li>
         </ul>
     </div>
 
-  <div class="resumen-pedido">
-    <table>
-        <tr>
-            <th>Producto</th>
-            <th>Cantidad</th>
-            <th>Precio Unitario</th>
-            <th>Precio Total</th>
-        </tr>
-        <tr>
-            <td>Producto 1</td>
-            <td><span class="cantidad">0</span></td>
-            <td>5.99€</td>
-            <td class="precio">$0</td>
-        </tr>
-        <tr>
-            <td>Producto 2</td>
-            <td><span class="cantidad">0</span></td>
-            <td>4.99€</td>
-            <td class="precio">$0</td>
-        </tr>
-        <tr>
-            <td>Producto 3</td>
-            <td><span class="cantidad">0</span></td>
-            <td>4.99€</td>
-            <td class="precio">$0</td>
-        </tr>
-        <tr>
-            <td>Producto 4</td>
-            <td><span class="cantidad">0</span></td>
-            <td>3.99€</td>
-            <td class="precio">$0</td>
-        </tr>
-        <tr>
-            <td>Producto 5</td>
-            <td><span class="cantidad">0</span></td>
-            <td>4.99€</td>
-            <td class="precio">$0</td>
-        </tr>
-        
-        <!-- Repite este bloque de fila para los otros productos (Producto 2 al Producto 5) -->
-        
-    </table>
-        <p class="total-a-pagar">Total a pagar: $0</p>
+    <div class="contenedor2">
+        <div class="resumen-pedido">
+        <table>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio (1)</th>
+                <th>Precio Total</th>
+            </tr>
+            <tr>
+                <td>Makizushi</td>
+                <td><span class="cantidad">0</span></td>
+                <td>5.99€</td>
+                <td class="precio">5,99€</td>
+            </tr>
+            <tr>
+                <td>Hosomaki</td>
+                <td><span class="cantidad">0</span></td>
+                <td>4.99€</td>
+                <td class="precio">4,99€</td>
+            </tr>
+            <tr>
+                <td>Niguiri</td>
+                <td><span class="cantidad">0</span></td>
+                <td>4.99€</td>
+                <td class="precio">4,99€</td>
+            </tr>
+            <tr>
+                <td>Uramaki</td>
+                <td><span class="cantidad">0</span></td>
+                <td>3.99€</td>
+                <td class="precio">3,99€</td>
+            </tr>
+            <tr>
+                <td>Futomaki</td>
+                <td><span class="cantidad">0</span></td>
+                <td>4.99€</td>
+                <td class="precio">3,99€</td>
+            </tr>
+            
+            <!-- Repite este bloque de fila para los otros productos (Producto 2 al Producto 5) -->
+            
+        </table>
+            <p class="total-a-pagar"></p>
+        </div>
     </div>
-
-  <script src="script_main.js"></script>
-  
-    <div >
+    <div class="pago">
         <a href="checkout.html" >
             <div id="ir-a-pago" class="col confirmar">Confirmar</div>
         </a>
-
-    </div>   
+    </div>
+    
     
 
 
@@ -102,5 +101,6 @@
         
     </div>
 </footer>
+<script src="script_main.js"></script>
 </body>
 </html>

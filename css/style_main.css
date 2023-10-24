@@ -53,7 +53,7 @@ body{
 
 }
 .filaT{
-    max-width: 1080px;
+
     justify-content:center;
     align-items: center;
     background-color: #aaa59e;
@@ -277,23 +277,63 @@ a:hover{
 
 
 .modal {
+    font-family: 'Poppins';
     display:none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 80%;
-    height: 80%;
-    /*background-color: rgba(200, 200, 200, 0.8);*/
+    justify-content: center;
+    align-items: center;
+    position:fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
     z-index: 999;
     overflow: auto;
 }
 
-.modal-content {
-    background-color: #fff;
-    padding: 20px;
+.modal-content h2{
+    width:100%;
+    margin-right:500px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2e2e2e;
+    color:#e8e6e3;
+    border-radius: 5px;
+    padding:10px 0px 10px 0px;
+}
+#signupForm{
+    width: 100%;
+    height:60%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #2e2e2e;
+    color:#e8e6e3;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     position: relative;
+
+}
+.modal-content input {
+    color:#e8e6e3;
+    background-color: #606060;
+    border:2px solid #606060;
+    border-radius: 20px;
+}
+
+.modal-content button{
+    background-color: #7b223b;
+    border:5px solid #551829;
+    margin:10px;
+    border-radius: 5px;
+    width:60%;
+}
+.modal-content button:hover{
+    background-color: #551829;
+    border:5px solid #7b223b;
+    border-radius: 20px;
+    width:60%;
 }
 
 ::-webkit-scrollbar {
@@ -391,6 +431,13 @@ a:hover{
     overflow:-moz-hidden-unscrollable;
 
 }
+.contenedor2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+
+}
 th{
     font-family: 'Receipt';
     color: #e8e6e3;
@@ -411,41 +458,27 @@ td{
     white-space: nowrap;
 }
 .pago{
-    display:flex;
-
-}
-
-.boton-pago{
-    font-size: 30px;
-    margin:30px 70px 0px 70px;
     display: flex;
+    margin-right: 60px;
     justify-content: center;
     align-items: center;
+}
+
+#ir-a-pago{
+    font-size: 30px;
     
 }
 
 .vacio2{
     height: 100px;
     width: 100%;
+
 }
 .confirmar{
     margin-bottom: 150px;
     text-align: center;
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .counter{
     position: relative;
@@ -491,29 +524,6 @@ td{
     font-weight: 500;
     color: #606060;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -576,17 +586,7 @@ button:disabled {
     background-color: #2e2e2e;
     cursor: not-allowed;
 }
-/* footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-} */
-/* .redes-sociales a {
-    text-decoration: none;
-    color: #fff;
-    margin: 0 10px;
-} */
+
 .grid-name-email{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -690,8 +690,8 @@ button:disabled {
 
     .filaT img{
         padding:10px;
-        width:100%;
-        height:100%;
+        width: 100%;
+        height: 100%;
     
     }
     .texto{
@@ -706,7 +706,6 @@ button:disabled {
         height: 100px;
         width: 100%;
         border-radius: 50px;
-
     
     }
  
@@ -781,6 +780,17 @@ button:disabled {
         justify-content: center;
         align-items: center;
     }
+    .modal-content h2{
+        margin-right:130px;
+    }
+    .modal {
+       
+        position:fixed;
+        width: 100%;
+        height: 105%;
+        z-index: 999;
+        overflow: auto;
+    }
     
     /* Style for the pop-up window container */
     .pop-up-window {
@@ -845,7 +855,6 @@ button:disabled {
         color: #e8e6e3;
     }
     
-    
     .breadcrumb ul li a{
         text-align: center;
         color: #fff;
@@ -873,33 +882,13 @@ button:disabled {
         border:10px solid #181a1b;
     }
     td{
-        font-family: "Receipt";
         font-size: 10px;
         border:10px solid #181a1b;
-        color:#e8e6e3;
 
     }
     .resumen-pedido p{
         font-size: 16px;
     }
-    .pago{
-        display:block;
-
-    }
-    .boton-pago{
-        font-size: 30px;
-        margin:30px 70px 0px 70px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        
-    }
-    
-
-    
-
-    
-    
 
 }
 @media only screen and (min-width: 600px) {
@@ -1031,6 +1020,25 @@ button:disabled {
     .modal-content {
         border-radius: 10px;
     }
+    .cantidad{
+        margin:40px;
+    }
+    th{
+        font-size: 17px;
+        border:15px solid #181a1b;
+    }
+    td{
+        font-size: 15px;
+        border:15px solid #181a1b;
+
+    }
+    .resumen-pedido p{
+        font-size: 26px;
+    }
+    #ir-a-pago{
+        font-size: 30px;
+        
+    }
 
 }
 @media only screen and (min-width: 992px) {
@@ -1094,6 +1102,12 @@ button:disabled {
         display: flex;
         margin-bottom:30px;
     }
+    .filaT img{
+        padding-left:10px;
+        width: 100%;
+        height: 100%;
+    
+    }
 
     .filaT:first-child{
         margin-top: 20px;
@@ -1150,6 +1164,30 @@ button:disabled {
         text-align: center;
         padding:10px;
 
+    }
+
+    .cantidad{
+        margin:40px;
+    }
+
+    th{
+        font-size: 25px;
+        border:15px solid #181a1b;
+    }
+
+    td{
+        font-size: 20px;
+        border:15px solid #181a1b;
+
+    }
+
+    .resumen-pedido p{
+        font-size: 28px;
+    }
+
+    #ir-a-pago{
+        font-size: 50px;
+        
     }
     
 }
